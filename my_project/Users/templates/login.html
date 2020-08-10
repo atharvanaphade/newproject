@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>
+	</title>
+</head>
+<body>
+	{% if messages %}
+      {% for message in messages %}
+        <div class = 'alert alert-{{messages.tags}}'>
+        	<h1>{{message}}</h1>
+        </div>
+      {% endfor %}
+	{% endif %}
+	<form method="post">
+		{% csrf_token %}
+		{{ form.as_p }}
+		<button type = 'submit'>Login</button>
+		<a href="{% url 'register' %}">Click Here to Register</a>
+		
+	</form>
+		
+
+</body>
+</html>
